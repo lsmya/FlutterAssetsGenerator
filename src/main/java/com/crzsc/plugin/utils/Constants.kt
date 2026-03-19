@@ -22,6 +22,9 @@ object Constants {
     /** 是否在 legacy 样式中使用父目录作为变量名前缀 (默认 true) */
     const val KEY_NAMED_WITH_PARENT = "named_with_parent"
 
+    /** 是否使用驼峰命名法 (默认 true) */
+    const val KEY_NAMED_USE_CAMEL_CASE = "named_use_camel_case"
+
     /** 输出的文件名 */
     const val KEY_OUTPUT_FILENAME = "output_filename"
 

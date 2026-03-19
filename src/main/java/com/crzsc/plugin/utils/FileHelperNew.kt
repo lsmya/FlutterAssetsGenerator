@@ -157,6 +157,11 @@ object FileHelperNew {
         return readSetting(config, Constants.KEY_NAMED_WITH_PARENT) as Boolean? ?: true
     }
 
+    /** 是否使用驼峰命名法 (默认 true) */
+    fun isNamedUseCamelCase(config: ModulePubSpecConfig): Boolean {
+        return readSetting(config, Constants.KEY_NAMED_USE_CAMEL_CASE) as Boolean? ?: true
+    }
+
     /** 读取生成的类名配置 */
     fun getGeneratedClassName(config: ModulePubSpecConfig): String {
         return readSetting(config, Constants.KEY_CLASS_NAME) as String?

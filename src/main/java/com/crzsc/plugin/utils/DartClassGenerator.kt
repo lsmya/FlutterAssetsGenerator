@@ -962,10 +962,15 @@ $packageDecl
             withoutDiacritics
                 .replace(Regex("[\\s()\\[\\]{}'\"`!@#$%^&*+=|\\\\:;,<>?/]"), "_")
                 .replace(Regex("_+"), "_") // 将连续的下划线替换为单个
+                .replace("-", "_")// 将连字符替换为下划线
                 .trim('_') // 移除首尾的下划线
 
         // 转换为驼峰命名
-        var newName = filtered.toLowCamelCase(Regex("[-_.]"))
+        var newName = if (FileHelperNew.isNamedUseCamelCase(config)) {
+            filtered.toLowCamelCase(Regex("[-_.]"))
+        } else {
+            filtered
+        }
 
         // 处理以数字开头的情况 (Dart变量名不能以数字开头)
         if (newName.isNotEmpty() && newName[0].isDigit()) {
